@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+#define BUFSIZE 10
+
+int main() {
+    int buffer[BUFSIZE], in = 0, out = 0;
+    int produce, consume, choice = 0;
+
+    while (choice != 3) {
+        printf("\n1. Produce \t 2. Consume \t 3. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+        case 1:
+            if ((in + 1) % BUFSIZE == out) {
+                printf("\nBuffer is Full\n");
+            } else {
+                printf("Enter the value: ");
+                scanf("%d", &produce);
+                buffer[in] = produce;
+                in = (in + 1) % BUFSIZE;
+            }
+            break;
+
+        case 2:
+            if (in == out) {
+                printf("\nBuffer is Empty\n");
+            } else {
+                consume = buffer[out];
+                printf("The consumed value is %d\n", consume);
+                out = (out + 1) % BUFSIZE;
+            }
+            break;
+
+        case 3:
+            printf("Exiting...\n");
+            break;
+
+        default:
+            printf("Invalid choice\n");
+        }
+    }
+
+    return 0;
+}
