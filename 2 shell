@@ -1,0 +1,14 @@
+# Step 1: Create a sample text file
+echo "This is a sample file." > sample.txt
+
+# Step 2: Create a shell script that reads the sample file
+echo '#!/bin/bash
+echo "This is a sample shell script."
+echo "Contents of sample.txt:"
+cat sample.txt' > myscript.sh
+
+# Step 3: Make the script executable
+chmod +x myscript.sh
+
+# Step 4: Run the script
+./myscript.sh
